@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nop.Core.Domain.Discounts;
@@ -25,6 +25,11 @@ namespace Nop.Core.Domain.Catalog
         protected ICollection<TierPrice> _tierPrices;
         protected ICollection<DiscountProductMapping> _discountProductMappings;
         private ICollection<ProductWarehouseInventory> _productWarehouseInventory;
+
+        /// <summary>
+        /// Gets or sets the author of product
+        /// </summary>
+        public string Author { get; set; }
 
         /// <summary>
         /// Gets or sets the product type identifier

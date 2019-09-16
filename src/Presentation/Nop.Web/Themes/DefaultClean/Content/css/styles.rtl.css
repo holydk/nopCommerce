@@ -1803,13 +1803,17 @@ label, label + * {
     padding: 0 0 10px;
 }
 .overview .product-name h1 {
-	font-size: 30px;
+	font-size: 50px;
     font-weight: normal;
 }
 .overview .short-description {
 	margin: 0 0 25px;
 	line-height: 22px;
 	color: #666;
+}
+.overview .author-name {
+  margin: 0 0 20px;
+  line-height: 22px;
 }
 
 .product-no-reviews,

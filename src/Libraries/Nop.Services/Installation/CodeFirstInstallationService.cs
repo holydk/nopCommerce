@@ -10250,6 +10250,56 @@ namespace Nop.Services.Installation
 
         protected virtual void InstallBooks(ProductTemplate productTemplateSimple, List<Product> allProducts, string sampleImagesPath, IPictureService pictureService, List<RelatedProduct> relatedProducts)
         {
+            var clr_via_c_sharp_richter = new Product
+            {
+                ProductType = ProductType.SimpleProduct,
+                VisibleIndividually = true,
+                Name = "CLR via C#",
+                Sku = "EU_647_RB",
+                ShortDescription = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+                FullDescription = "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
+                ProductTemplateId = productTemplateSimple.Id,
+                //SeName = "best-grilling-recipes",
+                Author = "Jeffrey Richter",
+                AllowCustomerReviews = true,
+                Price = 27M,
+                OldPrice = 30M,
+                IsShipEnabled = true,
+                IsFreeShipping = true,
+                Weight = 2,
+                Length = 2,
+                Width = 2,
+                Height = 2,
+                TaxCategoryId = _taxCategoryRepository.Table.Single(tc => tc.Name == "Books").Id,
+                ManageInventoryMethod = ManageInventoryMethod.ManageStock,
+                StockQuantity = 10000,
+                NotifyAdminForQuantityBelow = 1,
+                AllowBackInStockSubscriptions = false,
+                DisplayStockAvailability = true,
+                LowStockActivity = LowStockActivity.DisableBuyButton,
+                BackorderMode = BackorderMode.NoBackorders,
+                OrderMinimumQuantity = 1,
+                OrderMaximumQuantity = 10000,
+                Published = true,
+                CreatedOnUtc = DateTime.UtcNow,
+                UpdatedOnUtc = DateTime.UtcNow,
+                ProductCategories =
+                {
+                    new ProductCategory
+                    {
+                        Category = _categoryRepository.Table.Single(c => c.Name == "Books"),
+                        DisplayOrder = 1
+                    }
+                }
+            };
+            allProducts.Add(clr_via_c_sharp_richter);
+            clr_via_c_sharp_richter.ProductPictures.Add(new ProductPicture
+            {
+                Picture = pictureService.InsertPicture(_fileProvider.ReadAllBytes(_fileProvider.Combine(sampleImagesPath, "clr_via_c_sharp_richter.jpg")), MimeTypes.ImageJpeg, pictureService.GetPictureSeName(clr_via_c_sharp_richter.Name)),
+                DisplayOrder = 1
+            });
+            _productRepository.Insert(clr_via_c_sharp_richter);
+
             var productFahrenheit = new Product
             {
                 ProductType = ProductType.SimpleProduct,

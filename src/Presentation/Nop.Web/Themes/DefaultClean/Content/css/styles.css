@@ -1794,6 +1794,10 @@ label, label + * {
 	line-height: 22px;
 	color: #666;
 }
+.overview .author-name {
+  margin: 0 0 20px;
+  line-height: 22px;
+}
 
 .product-no-reviews,
 .product-reviews-overview {

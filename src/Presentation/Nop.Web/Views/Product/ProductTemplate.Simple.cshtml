@@ -80,6 +80,13 @@
                         @await Html.PartialAsync("_Availability", Model)
                         <!--SKU, MAN, GTIN, vendor-->
                         @await Html.PartialAsync("_SKU_Man_GTIN_Ven", Model)
+                        @if (!string.IsNullOrEmpty(Model.Author))
+                        {
+                            <div class="author-name">
+                                <span class="label">@T("Products.Author"):</span>
+                                <span class="value">@Html.Raw(Model.Author)</span>
+                            </div>
+                        }
                         <!--delivery-->
                         @await Html.PartialAsync("_DeliveryInfo", Model)
                         <!--sample download-->
